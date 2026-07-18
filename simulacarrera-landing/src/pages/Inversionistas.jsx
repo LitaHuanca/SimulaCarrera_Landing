@@ -3,46 +3,46 @@ import { motion, useInView } from 'framer-motion'
 import { TrendingUp, Users, DollarSign, Target, CheckCircle2, ArrowRight, Shield, Layers } from 'lucide-react'
 
 const METRICS = [
-  { icon: TrendingUp, val: '98.6%', label: 'Margen de contribución', sub: 'S/ 34.50 de S/ 35.00 por alumno' },
-  { icon: DollarSign, val: 'S/ 0.50', label: 'Costo variable por alumno', sub: 'IA + procesamiento PDF' },
-  { icon: Target, val: 'S/ 100K', label: 'Utilidad neta año 3', sub: '~3,178 alumnos evaluados / año' },
-  { icon: Users, val: '200K+', label: 'Estudiantes en el SAM', sub: 'Lima Metropolitana · documentado INEI' },
+  { icon: TrendingUp, val: '98.6%', label: 'De ganancia bruta por alumno', sub: 'Ganamos S/ 34.50 de los S/ 35 cobrados' },
+  { icon: DollarSign, val: 'S/ 0.50', label: 'Es nuestro único costo por test', sub: 'Generación con Inteligencia Artificial' },
+  { icon: Target, val: 'S/ 100K', label: 'Meta de ganancia neta al Año 3', sub: 'Requiere vender a solo 30-35 colegios' },
+  { icon: Users, val: '200K+', label: 'Alumnos solo en Lima', sub: 'Mercado potencial inicial según INEI' },
 ]
 
 const UNIT_ECONOMICS = [
-  { label: 'Precio de venta por alumno', val: 'S/ 35.00', highlight: false },
-  { label: 'Costo variable (IA + procesamiento PDF)', val: 'S/ 0.50', highlight: false },
-  { label: 'Margen de contribución por alumno', val: 'S/ 34.50 (98.6%)', highlight: true },
-  { label: 'Costos fijos mensuales (cloud + psicólogo COP)', val: 'S/ 896', highlight: false },
-  { label: 'Costos fijos anuales', val: 'S/ 10,752', highlight: false },
+  { label: 'Precio que paga el colegio/alumno', val: 'S/ 35.00', highlight: false },
+  { label: 'Lo que nos cuesta generar el test (IA)', val: 'S/ 0.50', highlight: false },
+  { label: 'Lo que nos queda de ganancia', val: 'S/ 34.50 (98.6%)', highlight: true },
+  { label: 'Gastos fijos de mantener la empresa al mes', val: 'S/ 896', highlight: false },
+  { label: 'Gastos fijos totales de todo un año', val: 'S/ 10,752', highlight: false },
 ]
 
 const SCENARIOS = [
-  { label: 'Academia pequeña', students: 50, revenue: 'S/ 1,750' },
-  { label: 'Colegio promedio', students: 100, revenue: 'S/ 3,500' },
-  { label: 'Institución grande', students: 300, revenue: 'S/ 10,500' },
-  { label: 'Meta anual empresa', students: '≈ 3,178', revenue: '≈ S/ 112,385', highlight: true },
+  { label: 'Si nos compra una Academia pequeña', students: 50, revenue: 'S/ 1,750' },
+  { label: 'Si nos compra un Colegio promedio', students: 100, revenue: 'S/ 3,500' },
+  { label: 'Si nos compra un Colegio grande', students: 300, revenue: 'S/ 10,500' },
+  { label: 'Nuestra meta modesta al año', students: '3,178', revenue: 'S/ 112,385', highlight: true },
 ]
 
 const PHASES = [
-  { phase: 'Fase 0', period: 'Meses 1–3', title: 'Preparación', desc: 'MVP cerrado, banco de 300 ítems RIASEC y módulo SJT/Big Five calibrados con el psicólogo COP. 3 instituciones piloto seleccionadas en Miraflores y San Isidro.' },
-  { phase: 'Fase 1', period: 'Meses 4–12', title: 'Piloto', desc: '5 instituciones activas, ≈ 500 alumnos evaluados, al menos 2 casos de éxito documentados con métricas verificables.' },
-  { phase: 'Fase 2', period: 'Año 2', title: 'Expansión', desc: '20 instituciones acumuladas, ≈ 1,800 alumnos evaluados / año. Primera recalibración del banco de ítems con datos reales de uso.' },
-  { phase: 'Fase 3', period: 'Año 3', title: 'Consolidación', desc: '30–35 instituciones, ≈ 3,178 alumnos / año. Meta de S/ 100,000 de utilidad neta alcanzada.' },
-  { phase: 'Fase 4', period: 'Año 4+', title: 'Escalamiento', desc: 'Expansión hacia colegios fuera de Lima Metropolitana y hacia mercados latinoamericanos comparables.' },
+  { phase: 'Paso 1', period: 'Meses 1–3', title: 'Creación y Calibración', desc: 'Plataforma construida y preguntas validadas estadísticamente por psicólogos profesionales. Colegios piloto en Lima seleccionados.' },
+  { phase: 'Paso 2', period: 'Meses 4–12', title: 'Prueba Piloto', desc: 'Evaluar a los primeros 500 alumnos reales en 5 instituciones para demostrar que la plataforma funciona y encanta a los directores.' },
+  { phase: 'Paso 3', period: 'Año 2', title: 'Empezar a Vender', desc: 'Llegar a 20 colegios usando el éxito de los primeros 5 como carta de recomendación. Proyectamos 1,800 alumnos evaluados.' },
+  { phase: 'Paso 4', period: 'Año 3', title: 'Punto de Equilibrio', desc: 'Alcanzar 30 a 35 colegios. Con eso, llegamos a nuestra meta de S/ 100,000 de utilidad neta para la empresa.' },
+  { phase: 'Paso 5', period: 'Año 4+', title: 'Crecimiento Nacional', desc: 'Una vez dominado Lima, expandiremos la venta a colegios de provincias y buscaremos países vecinos.' },
 ]
 
 const MARKET = [
-  { level: 'TAM', scope: 'Perú (nacional)', inst: '≈ 8,000 – 10,000', students: '≈ 500,000 – 600,000' },
-  { level: 'SAM', scope: 'Lima Metropolitana', inst: '≈ 3,200', students: '≈ 200,000' },
-  { level: 'SOM', scope: 'Lima Metropolitana (meta 3 años)', inst: '30 – 35', students: '≈ 3,178', highlight: true },
+  { level: 'Todo el Perú', scope: 'Nivel Nacional', inst: '≈ 8,000 – 10,000', students: '≈ 500,000 – 600,000' },
+  { level: 'Solo Lima', scope: 'Nivel Inicial', inst: '≈ 3,200', students: '≈ 200,000' },
+  { level: 'Nuestra Meta', scope: 'Lo que necesitamos lograr en 3 años', inst: '30 – 35', students: '≈ 3,178', highlight: true },
 ]
 
 const WHY_NOW = [
-  { icon: Shield, title: 'Regulatorio', desc: 'La RM 212-2020-MINEDU ya obliga tutoría vocacional. No estamos creando demanda: resolvemos una obligación que ya tiene presupuesto asignado.' },
-  { icon: Layers, title: 'Tecnológico', desc: 'Las APIs de IA de clase mundial permiten construir simulaciones adaptativas sin inversión en investigación propia. El costo de entrada nunca fue más bajo.' },
-  { icon: Users, title: 'Generacional', desc: 'El estudiante de secundaria de hoy prefiere aprender haciendo. Favorece directamente la adopción de un instrumento basado en simulación interactiva.' },
-  { icon: Target, title: 'Competitivo', desc: 'No existe competidor directo local con un producto equivalente. La barrera de entrada —biblioteca de simulaciones validadas— es lenta de replicar.' },
+  { icon: Shield, title: 'La Ley nos ayuda', desc: 'El Ministerio de Educación (MINEDU) obliga a los colegios a hacer tutoría vocacional. Nosotros somos la forma más fácil y barata de que cumplan la ley.' },
+  { icon: Layers, title: 'Tecnología Barata', desc: 'Gracias a ChatGPT y otras Inteligencias Artificiales modernas, podemos procesar los resultados a centavos por alumno, algo imposible hace 3 años.' },
+  { icon: Users, title: 'Generación Digital', desc: 'Los jóvenes ya no quieren marcar bolitas en un papel. Quieren hacer test interactivos en sus celulares, y nuestro producto les da exactamente eso.' },
+  { icon: Target, title: 'Cero Competencia Local', desc: 'En Perú solo existen test aburridos de internet que no sirven, o psicólogos carísimos. No hay nada en medio. Somos los primeros.' },
 ]
 
 export default function Inversionistas() {
@@ -88,7 +88,7 @@ export default function Inversionistas() {
           <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 24 }}>
             <motion.div initial={{ opacity: 0, x: -20 }} animate={metricsInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.3, duration: 0.45 }}
               style={{ background: '#0F0A1E', borderRadius: 16, padding: '36px', border: '1px solid rgba(112,68,191,0.2)' }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: 16, color: '#fff', marginBottom: 24 }}>Economía unitaria</div>
+              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: 16, color: '#fff', marginBottom: 24 }}>El Negocio por Alumno</div>
               {UNIT_ECONOMICS.map((r, i) => (
                 <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '13px 0', borderBottom: i < UNIT_ECONOMICS.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
                   <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13 }}>{r.label}</span>
@@ -120,7 +120,7 @@ export default function Inversionistas() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45 }}
             style={{ marginBottom: 48 }}>
             <div style={{ display: 'inline-block', background: '#F0E8FC', color: '#7044BF', fontSize: 11, fontWeight: 700, padding: '4px 14px', borderRadius: 100, marginBottom: 16, letterSpacing: '0.07em', textTransform: 'uppercase' }}>Tamaño de mercado</div>
-            <h2 style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 800, fontSize: 'clamp(24px, 3vw, 34px)', color: '#0F0A1E', letterSpacing: '-1px' }}>TAM · SAM · SOM</h2>
+            <h2 style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 800, fontSize: 'clamp(24px, 3vw, 34px)', color: '#0F0A1E', letterSpacing: '-1px' }}>El potencial de ventas</h2>
           </motion.div>
 
           <div style={{ background: '#fff', borderRadius: 16, overflow: 'hidden', border: '1px solid #E5E0EE' }}>

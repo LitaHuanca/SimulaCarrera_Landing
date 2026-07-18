@@ -5,7 +5,9 @@ import { GraduationCap, Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Cómo funciona', to: '/como-funciona' },
+  { label: 'Colegios y Academias', to: '/institucional' },
   { label: 'Precios', to: '/precios' },
+  { label: 'Modelo de negocio', to: '/modelo-negocio' },
   { label: 'Inversionistas', to: '/inversionistas' },
 ]
 

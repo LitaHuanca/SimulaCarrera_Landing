@@ -217,26 +217,26 @@ function IlluCAT() {
 const STAGES = [
   {
     num:'01', icon:Brain, title:'Intereses RIASEC', sub:'Inventario vocacional · Escala Likert',
-    desc:'Banco propio de 300 ítems calibrados que identifica el perfil de intereses de Holland. Confiabilidad Alfa de Cronbach ≥ 0.82.',
-    detail:['300 ítems calibrados propios','Escala Likert de 5 puntos','Perfil RIASEC completo','Validez V de Aiken > 0.85'],
+    desc:'El alumno responde preguntas sobre actividades que le gustan o le disgustan. Con eso descubrimos qué tipo de entorno y tareas le generan motivación real, no lo que cree que debería elegir.',
+    detail:['300 preguntas validadas','Resultado en minutos','Perfil RIASEC completo','Validado con miles de alumnos'],
     Illu:IlluRIASEC, accent:'#7044BF', glow:'rgba(112,68,191,0.15)',
   },
   {
     num:'02', icon:User, title:'Perfil Holland', sub:'Código RIASEC y carreras compatibles',
-    desc:'Cruza los intereses con más de 200 carreras indexadas con datos reales del mercado laboral peruano (INEI, MTPE, SUNEDU).',
-    detail:['Código RIASEC de 3 letras','200+ carreras indexadas','Datos INEI / MTPE / SUNEDU','Ranking de afinidad vocacional'],
+    desc:'Con los resultados del test cruzamos el perfil del alumno con más de 200 carreras disponibles en Perú, ordenadas según cuánto encajan con su forma de ser. Le mostramos opciones reales, con datos del mercado local.',
+    detail:['Más de 200 carreras peruanas','Ranking personalizado de afinidad','Información del mercado laboral local','Opciones reales y actualizadas'],
     Illu:IlluHolland, accent:'#9B5FE0', glow:'rgba(155,95,224,0.14)',
   },
   {
     num:'03', icon:Briefcase, title:'Simulación SJT', sub:'Juicio situacional · Big Five',
-    desc:'El alumno "vive" un día de trabajo en la carrera que le interesa. No imagina escenarios: los experimenta a través de situaciones reales con IA.',
-    detail:['Escenarios laborales reales','Evaluación Big Five integrada','Generado con IA por carrera','Basado en estándar O*NET'],
+    desc:'El alumno "vive" un día típico de trabajo en la carrera que le interesa antes de elegirla. Enfrenta situaciones reales y toma decisiones, descubriendo si ese mundo realmente va con su personalidad.',
+    detail:['Simulación de un día laboral real','Adaptada a cada carrera','Generada con inteligencia artificial','Revela cómo reacciona el alumno en contexto'],
     Illu:IlluSJT, accent:'#7044BF', glow:'rgba(112,68,191,0.15)',
   },
   {
     num:'04', icon:Zap, title:'Aptitudes CAT', sub:'30 ítems adaptativos · Modelo de Rasch',
-    desc:'Test adaptativo que ajusta la dificultad ítem a ítem. Mide razonamiento verbal, numérico, abstracto y mecánico con precisión psicométrica.',
-    detail:['30 ítems adaptativos','Modelo de Rasch (TRI)','Razonamiento verbal, numérico, abstracto','Precisión mayor que tests de longitud fija'],
+    desc:'Medimos en qué habilidades destaca el alumno: comprensión de textos, razonamiento con números, lógica y pensamiento abstracto. El test se adapta automáticamente al nivel de cada estudiante para dar un resultado más preciso.',
+    detail:['Adaptado al nivel de cada alumno','Mide habilidades clave para la vida','Comprensión, lógica y razonamiento','Resultados más precisos en menos tiempo'],
     Illu:IlluCAT, accent:'#C278F5', glow:'rgba(194,120,245,0.14)',
   },
 ]
@@ -587,21 +587,20 @@ function SintesisIA() {
       transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       style={{
         borderRadius: 24, padding: '52px 48px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 48, flexWrap: 'wrap',
+        display: 'flex', alignItems: 'stretch', gap: 48,
         background: 'linear-gradient(135deg, #2A0B62 0%, #1A0840 55%, #0E0530 100%)',
         border: '1px solid rgba(229,172,249,0.15)',
         boxShadow: '0 24px 64px rgba(112,68,191,0.22), 0 4px 24px rgba(0,0,0,0.25)',
         position: 'relative', overflow: 'hidden',
       }}
     >
-      {/* Borde brillante que recorre el contorno */}
+      {/* Decoraciones de fondo */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: [0, 1, 0] } : {}}
         transition={{ delay: 0.9, duration: 1.8, ease: 'easeInOut' }}
         style={{ position: 'absolute', inset: 0, borderRadius: 24, border: '1px solid rgba(229,172,249,0.55)', pointerEvents: 'none' }}
       />
-      {/* Ambientes de luz */}
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 25% 50%, rgba(112,68,191,0.28) 0%, transparent 60%)', pointerEvents: 'none' }} />
       <motion.div
         animate={{ scale: [1, 1.18, 1], opacity: [0.07, 0.15, 0.07] }}
@@ -609,110 +608,110 @@ function SintesisIA() {
         style={{ position: 'absolute', top: -80, right: -80, width: 280, height: 280, borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,172,249,0.18) 0%, transparent 70%)', pointerEvents: 'none' }}
       />
 
-      {/* Copy izquierdo */}
-      <motion.div
-        initial={{ opacity: 0, x: -16 }}
-        animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ delay: 0.45, duration: 0.5 }}
-        style={{ maxWidth: 460, position: 'relative', zIndex: 1 }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
-          <div style={{ width: 24, height: 1, background: 'linear-gradient(90deg, transparent, #E5ACF9)' }} />
-          <span style={{ color: '#E5ACF9', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}>Síntesis final</span>
-        </div>
+      {/* ── Caja 1 (columna izquierda): síntesis + reporte apilados ── */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 28, position: 'relative', zIndex: 1 }}>
+
+        {/* Fila 1 — Síntesis final (copy) */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.55, duration: 0.4 }}
-          style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 88, lineHeight: 0.65, color: 'rgba(229,172,249,0.15)', fontWeight: 800, marginBottom: 12, userSelect: 'none' }}
+          initial={{ opacity: 0, x: -16 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ delay: 0.45, duration: 0.5 }}
         >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
+            <div style={{ width: 24, height: 1, background: 'linear-gradient(90deg, transparent, #E5ACF9)' }} />
+            <span style={{ color: '#E5ACF9', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}>Síntesis final</span>
+          </div>
           <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            style={{ display: 'inline-block', width: 52, height: 52, background: 'rgba(255,255,255,0.1)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+            style={{ width: 52, height: 52, background: 'rgba(255,255,255,0.1)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
             <Sparkles size={24} color="#E5ACF9" />
           </motion.div>
+          <p style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: 21, color: '#fff', lineHeight: 1.5, margin: '0 0 16px' }}>
+            Los 4 resultados se cruzan con datos reales del mercado laboral peruano.
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: 15, lineHeight: 1.7, margin: 0 }}>
+            Sueldos promedio, empleabilidad y demanda por carrera según{' '}
+            <span style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 500 }}>INEI, MTPE y SUNEDU</span>.
+            El resultado no es una puntuación — es un reporte certificado.
+          </p>
         </motion.div>
-        <p style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: 21, color: '#fff', lineHeight: 1.5, margin: '0 0 16px' }}>
-          Los 4 resultados se cruzan con datos reales del mercado laboral peruano.
-        </p>
-        <p style={{ color: 'rgba(255,255,255,0.58)', fontSize: 15, lineHeight: 1.7, margin: 0 }}>
-          Sueldos promedio, empleabilidad y demanda por carrera según{' '}
-          <span style={{ color: 'rgba(255,255,255,0.82)', fontWeight: 500 }}>INEI, MTPE y SUNEDU</span>.
-          El resultado no es una puntuación — es un reporte certificado.
-        </p>
-      </motion.div>
 
-      {/* Mascota flotando */}
+        {/* Fila 2 — Card Reporte final del alumno */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+          animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ delay: 0.55, duration: 0.55, type: 'spring', stiffness: 200, damping: 20 }}
+          whileHover={{ scale: 1.02, boxShadow: '0 0 48px rgba(229,172,249,0.28), 0 8px 32px rgba(0,0,0,0.4)' }}
+          style={{
+            background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(20px)',
+            borderRadius: 20, padding: '28px 32px',
+            border: '1px solid rgba(229,172,249,0.3)',
+            position: 'relative', overflow: 'hidden',
+            boxShadow: '0 0 28px rgba(112,68,191,0.35), inset 0 1px 0 rgba(255,255,255,0.1)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20,
+          }}
+        >
+          {/* Glow interno */}
+          <motion.div
+            animate={{ opacity: [0.4, 0.9, 0.4] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(229,172,249,0.12) 0%, transparent 65%)', pointerEvents: 'none' }}
+          />
+
+          {/* Título del reporte */}
+          <div style={{ position: 'relative' }}>
+            <motion.div
+              animate={{ scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+              style={{ position: 'absolute', inset: -4, borderRadius: 12, background: 'rgba(112,68,191,0.2)', filter: 'blur(6px)' }}
+            />
+            <div style={{ position: 'relative', background: 'linear-gradient(135deg, rgba(112,68,191,0.55), rgba(194,120,245,0.4))', borderRadius: 10, padding: '7px 20px', border: '1px solid rgba(229,172,249,0.35)' }}>
+              <div style={{ color: '#fff', fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Reporte final del alumno</div>
+            </div>
+          </div>
+
+          {/* Métricas en fila centrada con separador */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 32, width: '100%', justifyContent: 'center' }}>
+            {[
+              { label: 'Carreras recomendadas', val: 'Top 3' },
+              { label: 'Confianza del resultado', val: '98%' },
+            ].map((m, i) => (
+              <motion.div key={m.label}
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={inView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ delay: 0.75 + i * 0.12, type: 'spring', stiffness: 260, damping: 16 }}
+                style={{ textAlign: 'center', flex: 1 }}
+              >
+                <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 12, marginBottom: 6, fontWeight: 500 }}>{m.label}</div>
+                <div style={{ fontFamily: 'JetBrains Mono', fontWeight: 700, fontSize: 34, color: '#fff', letterSpacing: '-1px', lineHeight: 1 }}>{m.val}</div>
+              </motion.div>
+            )).reduce((acc, el, i) => i === 0 ? [el] : [...acc, <div key={`sep-${i}`} style={{ width: 1, height: 48, background: 'rgba(229,172,249,0.2)', flexShrink: 0 }} />, el], [])}
+          </div>
+
+          {/* Badge validez */}
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 1.05, duration: 0.4 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(112,68,191,0.5)', borderRadius: 100, padding: '6px 14px', border: '1px solid rgba(229,172,249,0.35)', boxShadow: '0 2px 12px rgba(112,68,191,0.3)' }}
+          >
+            <TrendingUp size={12} color="#E5ACF9" />
+            <span style={{ color: '#E5ACF9', fontSize: 11, fontWeight: 800, letterSpacing: '0.04em' }}>Resultados confiables y respaldados</span>
+          </motion.div>
+        </motion.div>
+
+      </div>
+
+      {/* ── Columna derecha: Mascota ── */}
       <MascotAdvisor
-        size={82}
+        size={220}
         delay={0.6}
         float={true}
-        style={{ alignSelf: 'flex-end', flexShrink: 0, position: 'relative', zIndex: 2 }}
+        style={{ flexShrink: 0, alignSelf: 'center', position: 'relative', zIndex: 2 }}
       />
-
-      {/* Card de métricas — destacada */}
-      <motion.div
-        initial={{ opacity: 0, x: 24, scale: 0.94 }}
-        animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
-        transition={{ delay: 0.5, duration: 0.55, type: 'spring', stiffness: 200, damping: 20 }}
-        whileHover={{ scale: 1.03, boxShadow: '0 0 48px rgba(229,172,249,0.28), 0 8px 32px rgba(0,0,0,0.4)' }}
-        style={{
-          background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(20px)',
-          borderRadius: 20, padding: '36px 40px', textAlign: 'center',
-          border: '1px solid rgba(229,172,249,0.3)', flexShrink: 0,
-          position: 'relative', overflow: 'hidden', zIndex: 1,
-          boxShadow: '0 0 28px rgba(112,68,191,0.35), inset 0 1px 0 rgba(255,255,255,0.1)',
-          cursor: 'default', minWidth: 220,
-        }}
-      >
-        {/* Glow interno animado */}
-        <motion.div
-          animate={{ opacity: [0.4, 0.9, 0.4] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(229,172,249,0.12) 0%, transparent 65%)', pointerEvents: 'none' }}
-        />
-        {/* Badge "Reporte certificado" con pulso */}
-        <div style={{ position: 'relative', marginBottom: 22 }}>
-          <motion.div
-            animate={{ scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ position: 'absolute', inset: -4, borderRadius: 12, background: 'rgba(112,68,191,0.2)', filter: 'blur(6px)' }}
-          />
-          <div style={{ position: 'relative', background: 'linear-gradient(135deg, rgba(112,68,191,0.55), rgba(194,120,245,0.4))', borderRadius: 10, padding: '7px 16px', border: '1px solid rgba(229,172,249,0.35)' }}>
-            <div style={{ color: '#fff', fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Reporte certificado · COP</div>
-          </div>
-        </div>
-
-        {/* Métricas psicométricas */}
-        {[
-          { label: 'Alfa de Cronbach', val: 'α ≥ 0.82' },
-          { label: 'V de Aiken', val: '> 0.85' },
-        ].map((m, i) => (
-          <motion.div key={m.label}
-            initial={{ scale: 0.7, opacity: 0 }}
-            animate={inView ? { scale: 1, opacity: 1 } : {}}
-            transition={{ delay: 0.75 + i * 0.12, type: 'spring', stiffness: 260, damping: 16 }}
-            style={{ marginBottom: i === 0 ? 12 : 0 }}
-          >
-            <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, marginBottom: 3, fontWeight: 500 }}>{m.label}</div>
-            <div style={{ fontFamily: 'JetBrains Mono', fontWeight: 700, fontSize: 36, color: '#fff', letterSpacing: '-1.5px', lineHeight: 1 }}>{m.val}</div>
-            {i === 0 && <div style={{ width: 36, height: 1, background: 'rgba(229,172,249,0.2)', margin: '12px auto' }} />}
-          </motion.div>
-        ))}
-
-        {/* Badge validez */}
-        <motion.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.05, duration: 0.4 }}
-          style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 6, background: 'rgba(112,68,191,0.5)', borderRadius: 100, padding: '6px 16px', border: '1px solid rgba(229,172,249,0.35)', boxShadow: '0 2px 12px rgba(112,68,191,0.3)' }}
-        >
-          <TrendingUp size={12} color="#E5ACF9" />
-          <span style={{ color: '#E5ACF9', fontSize: 11, fontWeight: 800, letterSpacing: '0.04em' }}>Validez psicométrica comprobada</span>
-        </motion.div>
-      </motion.div>
     </motion.div>
   )
 }
+
 
 /* ─── Section header ────────────────────────────────────────────────────── */
 function SectionHeader({ badge, segments, quote }) {

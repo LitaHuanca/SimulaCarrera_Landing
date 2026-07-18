@@ -849,7 +849,7 @@ function HomeCTA() {
           transition={{ delay: 0.7, duration: 0.45 }}
           style={{ color: 'rgba(255,255,255,0.52)', fontSize: 17, lineHeight: 1.72, maxWidth: 520, margin: '0 auto 44px' }}
         >
-          Carga de alumnos vía CSV, evaluación en línea, reportes certificados y panel institucional.{' '}
+          Registro de alumnos en minutos, evaluación en línea, reportes certificados y panel institucional.{' '}
           <span style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>Sin carga operativa para su equipo.</span>
         </motion.p>
 
